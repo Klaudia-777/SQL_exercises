@@ -1,0 +1,48 @@
+
+SELECT
+nazwa
+FROM
+czekoladki
+WHERE
+ czekolada IN ('mleczna','gorzka')
+ORDER BY
+ nazwa ASC ;
+
+###############
+
+SELECT
+nazwa,
+masa
+FROM
+czekoladki
+WHERE
+masa > 25
+ORDER BY
+nazwa ASC ;
+
+###############
+
+SELECT idklienta, nazwa, miejscowosc from klienci
+WHERE 
+miejscowosc IN ('Kraków','Warszawa','Gdańsk')
+ORDER BY 
+idklienta ASC;
+
+################
+
+SELECT * FROM klienci;
+
+SELECT idklienta, nazwa, miejscowosc from klienci
+WHERE 
+miejscowosc !='Gdańsk'
+ORDER BY 
+idklienta ASC;
+
+################
+
+SELECT idklienta, nazwa, ulica from klienci
+WHERE 
+ulica LIKE 'Akacjowa %'
+ORDER BY 
+idklienta ASC;
+

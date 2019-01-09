@@ -1,0 +1,96 @@
+SELECT nazwa, ulica, miejscowosc from klienci
+ORDER BY
+nazwa ASC;
+
+#############
+
+SELECT nazwa, ulica, miejscowosc from klienci
+ORDER BY
+miejscowosc DESC,
+nazwa ASC;
+
+########3###
+
+SELECT nazwa, ulica, miejscowosc from klienci
+WHERE
+miejscowosc IN ('Kraków','Warszawa')
+ORDER BY
+miejscowosc DESC,
+nazwa ASC;
+
+################
+
+SELECT nazwa, ulica, miejscowosc from klienci
+WHERE
+miejscowosc = 'Kraków'
+OR 
+miejscowosc ='Warszawa'
+ORDER BY
+miejscowosc DESC,
+nazwa ASC;
+
+################
+
+SELECT nazwa, miejscowosc from klienci
+ORDER BY
+miejscowosc DESC;
+
+################
+
+SELECT nazwa, miejscowosc from klienci
+WHERE
+miejscowosc='Kraków'
+ORDER BY
+nazwa;
+
+################
+
+SELECT nazwa, masa from czekoladki
+WHERE
+masa > 20;
+
+################
+
+SELECT nazwa, masa, koszt from czekoladki
+WHERE
+masa > 20 and koszt > 0.25;
+
+################
+
+SELECT nazwa, masa, koszt*100 as "koszt w gr" from czekoladki
+WHERE
+masa > 20 and koszt > 0.25;
+
+################
+
+SELECT nazwa, czekolada, nadzienie, orzechy from czekoladki
+WHERE
+(czekolada='mleczna' and nadzienie='maliny') 
+OR
+(czekolada='mleczna'and nadzienie='truskawki')
+OR
+(czekolada != 'gorzka'and orzechy = 'laskowe');
+
+################
+
+SELECT nazwa, masa from czekoladki
+WHERE
+masa between 15 and 24;
+
+################
+
+SELECT nazwa, orzechy from czekoladki
+WHERE
+orzechy is null;
+
+################
+
+SELECT nazwa, czekolada, orzechy from czekoladki
+WHERE
+czekolada IN('mleczna', 'biała')
+and
+orzechy is null;
+
+################
+
+SELECT * from klienci;

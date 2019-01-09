@@ -1,0 +1,38 @@
+Select z.datarealizacji, z.idzamowienia from zamowienia z natural join klienci k
+where k.nazwa Like '% Antoni' ;
+
+###############
+
+Select k.nazwa, k.ulica, k.miejscowosc from klienci k 
+natural join zamowienia z
+natural join artykuly a
+join pudelka p using(idpudelka)
+where p.nazwa in('Kremowa fantazja','Kolekcja jesienna');
+
+###############
+
+Select k.nazwa, k.ulica, k.miejscowosc from klienci k 
+natural join zamowienia z
+natural join artykuly a
+join pudelka p on p.idpudelka=a.idpudelka
+where p.nazwa in('Kremowa fantazja','Kolekcja jesienna');
+
+###############
+
+Select distinct k.nazwa, k.ulica, k.miejscowosc from klienci k
+natural join zamowienia z
+order by nazwa asc;
+
+###############
+
+Select k.nazwa, k.ulica, k.miejscowosc from klienci k
+left join zamowienia z on z.idklienta=k.idklienta
+where k.idzamowienia is null
+order by nazwa asc;
+
+###############
+
+Select sum(z.sztuk) as sz, p.* from pudelka p
+natural join zawartosc z
+group by p.idpudelka
+order by sz limit 3;

@@ -1,0 +1,98 @@
+Select * from zamowienia;
+
+################
+
+Select idklienta, datarealizacji from zamowienia
+Where
+date_part('month',datarealizacji)=11
+and
+date_part('day',datarealizacji) between 12 and 20;
+
+################
+
+Select idklienta, datarealizacji from zamowienia
+Where
+date_part('month',datarealizacji)=12
+and
+(date_part('day',datarealizacji) between 1 and 6
+or
+date_part('day',datarealizacji) between 15 and 20);
+
+################
+
+Select idklienta, datarealizacji from zamowienia
+Where
+datarealizacji between date '2013-12-01' and date '2013-12-01' + INTERVAL '1 MONTH';
+
+################
+
+Select idklienta, datarealizacji from zamowienia
+Where
+datarealizacji between date '2013-12-01' and date '2013-12-31';
+
+################
+
+Select idklienta, datarealizacji from zamowienia
+Where
+EXTRACT(MONTH FROM datarealizacji)=11;
+
+################
+
+Select nazwa from czekoladki 
+Where
+nazwa LIKE 'S%';
+
+################
+
+Select nazwa from czekoladki 
+Where
+nazwa LIKE '%orzech%';
+
+################
+
+Select DISTINCT idklienta from zamowienia;
+
+################
+
+Select idklienta, miejscowosc from klienci
+Where 
+miejscowosc LIKE '% %';
+
+################
+
+Select idklienta, telefon from klienci
+Where 
+telefon LIKE '% __ %';
+
+################
+
+Select nazwa from klienci
+except 
+Select nazwa from klienci
+where 
+nazwa like 'A%';
+
+################
+
+Select idklienta from klienci
+except
+Select idklienta from zamowienia;
+
+################
+
+Select * from pudelka;
+
+################
+
+Select nazwa from klienci
+UNION
+Select nazwa from pudelka
+where 
+nazwa LIKE '%rz%';
+
+################
+
+Select idczekoladki from czekoladki
+except
+Select idczekoladki from zawartosc;
+
